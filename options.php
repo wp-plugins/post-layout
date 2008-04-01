@@ -1,11 +1,24 @@
 <?
+function pstl_request($name, $default=null)
+{
+    if (!isset($_REQUEST[$name])) return $default;
+    if (get_magic_quotes_gpc()) return pstl_stripslashes($_REQUEST[$name]);
+    else return $_REQUEST[$name];
+}
+
+function pstl_stripslashes($value)
+{
+    $value = is_array($value) ? array_map('pstl_stripslashes', $value) : stripslashes($value);
+    return $value;
+}
+
 function pstl_field_text($name, $label='', $tips='', $attrs='')
 {
   global $options;
   if (strpos($attrs, 'size') === false) $attrs .= 'size="30"';
   echo '<tr><td class="label">';
   echo '<label for="options[' . $name . ']">' . $label . '</label></td>';
-  echo '<td><input type="text" ' . $attrs . ' name="options[' . $name . ']" value="' . 
+  echo '<td><input type="text" ' . $attrs . ' name="options[' . $name . ']" value="' .
     htmlspecialchars($options[$name]) . '"/>';
   echo ' ' . $tips;
   echo '</td></tr>';
@@ -16,7 +29,7 @@ function pstl_field_checkbox($name, $label='', $tips='', $attrs='')
   global $options;
   echo '<tr><td class="label">';
   echo '<label for="options[' . $name . ']">' . $label . '</label></td>';
-  echo '<td><input type="checkbox" ' . $attrs . ' name="options[' . $name . ']" value="1" ' . 
+  echo '<td><input type="checkbox" ' . $attrs . ' name="options[' . $name . ']" value="1" ' .
     ($options[$name]!= null?'checked':'') . '/>';
   echo ' ' . $tips;
   echo '</td></tr>';
@@ -25,28 +38,28 @@ function pstl_field_checkbox($name, $label='', $tips='', $attrs='')
 function pstl_field_textarea($name, $label='', $tips='', $attrs='')
 {
   global $options;
-  
+
   if (strpos($attrs, 'cols') === false) $attrs .= 'cols="70"';
   if (strpos($attrs, 'rows') === false) $attrs .= 'rows="5"';
-  
+
   echo '<tr><td class="label">';
   echo '<label for="options[' . $name . ']">' . $label . '</label></td>';
-  echo '<td><textarea wrap="off" ' . $attrs . ' name="options[' . $name . ']">' . 
+  echo '<td><textarea wrap="off" ' . $attrs . ' name="options[' . $name . ']">' .
     htmlspecialchars($options[$name]) . '</textarea>';
   echo '<br /> ' . $tips;
   echo '</td></tr>';
-}	
+}
 
 if (isset($_POST['save']))
 {
-  $options = $_REQUEST['options'];
+  $options = pstl_request('options');
   update_option('pstl', $options);
 }
-else 
+else
 {
     $options = get_option('pstl');
 }
-?>	
+?>
 <div class="wrap">
 <form method="post">
 
