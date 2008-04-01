@@ -13,6 +13,8 @@ Adds HTML o javascript code before, after or in the middle of the content withou
 Add HTML o javascript code before, after or in the middle of the content without modify the theme.
 Used to add ads code (like Google AdSense), post footer or header and so on.
 
+For any problem or question write me: satollo@gmail.com.
+
 == Installation ==
 
 1. Put the plugin folder into [wordpress_dir]/wp-content/plugins/

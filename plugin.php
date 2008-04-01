@@ -2,7 +2,7 @@
 /*
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.com/english/wordpress/post-layout
-Description: Adds HTML o javascript code before, after or in the middle of the content without modify the theme.
+Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
 Version: 1.0
 Author: Satollo
 Author URI: http://www.satollo.com
