@@ -1,10 +1,10 @@
 === Post Layout ===
-Tags: post, layout, theme, adsense, page
+Tags: post, layout, theme, adsense, page, ads
 Requires at least: 2.1
 Tested up to: 2.5
-Stable tag: 1.0
+Stable tag: 1.1
 Donate link: http://www.satollo.com/english/donate
-Contributors: none
+Contributors: satollo
 
 Adds HTML o javascript code before, after or in the middle of the content without modify the theme.
 
@@ -12,6 +12,9 @@ Adds HTML o javascript code before, after or in the middle of the content withou
 
 Add HTML o javascript code before, after or in the middle of the content without modify the theme.
 Used to add ads code (like Google AdSense), post footer or header and so on.
+
+Now integrates with Bookmark Me! Install both the plugins and discover hoe they go together on
+http://www.satollo.com/english/wordpress/post-layout.
 
 For any problem or question write me: satollo@gmail.com.
 
