@@ -60,6 +60,13 @@ else
     $options = get_option('pstl');
 }
 ?>
+<style type="text/css">
+td.label {
+    width: 150px;
+    text-align: right;
+    font-weight: bold;
+}
+</style>
 <div class="wrap">
 <form method="post">
 
