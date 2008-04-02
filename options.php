@@ -65,6 +65,12 @@ else
 
 <h2>Post Layout</h2>
 
+<? if (BOOKMARK_ME) { ?>
+<p>You have bookmark me installed. Use the tag [bookmark_me] to print the bookmark buttons!</p>
+<? } ?>
+
+<p>Read to the end of the page for tags to be used inside the texts.</p>
+
 <h3>Home and categories</h3>
 <table>
 <? pstl_field_textarea('home_before', 'Code before the post'); ?>

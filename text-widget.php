@@ -33,8 +33,8 @@ function pstl_widget_init() {
 
 		// Collect our widget's options, or define their defaults.
 		$options = get_option('pstl_widget');
-		$title = empty($options['title']) ? 'My Widget' : $options['title'];
-		$text = empty($options['text']) ? 'Hello World!' : $options['text'];
+		$title = empty($options['title']) ? '' : $options['title'];
+		$text = empty($options['text']) ? '' : $options['text'];
         $text = str_replace('[author_aim]', get_the_author_aim(), $text);
 
  		// It's important to use the $before_widget, $before_title,
