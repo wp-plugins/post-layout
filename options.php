@@ -72,7 +72,7 @@ td.label {
 
 <h2>Post Layout</h2>
 
-<? if (BOOKMARK_ME) { ?>
+<? if (defined('BOOKMARK_ME')) { ?>
 <p>You have bookmark me installed. Use the tag [bookmark_me] to print the bookmark buttons!</p>
 <? } ?>
 
