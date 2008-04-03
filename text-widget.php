@@ -35,8 +35,12 @@ function pstl_widget_init() {
 		$options = get_option('pstl_widget');
 		$title = empty($options['title']) ? '' : $options['title'];
 		$text = empty($options['text']) ? '' : $options['text'];
-        $text = str_replace('[author_aim]', get_the_author_aim(), $text);
-
+		$aim = $options['aim'];
+        if (is_single() || is_page())
+            $text = str_replace('[author_aim]', get_the_author_aim(), $text);
+        else
+            $text = str_replace('[author_aim]', $aim, $text);
+            
  		// It's important to use the $before_widget, $before_title,
  		// $after_title and $after_widget variables in your output.
 		echo $before_widget;
@@ -58,6 +62,7 @@ function pstl_widget_init() {
 			// Clean up control form submission options
 			$newoptions['title'] = stripslashes($_POST['pstl_widget_title']);
 			$newoptions['text'] = stripslashes($_POST['pstl_widget_text']);
+			$newoptions['aim'] = stripslashes($_POST['pstl_widget_aim']);
 		}
 
 		// If original widget options do not match control form
@@ -70,6 +75,7 @@ function pstl_widget_init() {
 		// Format options as valid HTML. Hey, why not.
 		$title = htmlspecialchars($options['title'], ENT_QUOTES);
 		$text = htmlspecialchars($options['text'], ENT_QUOTES);
+		$text = htmlspecialchars($options['aim'], ENT_QUOTES);
 
 // The HTML below is the control form for editing options.
 ?>
@@ -77,6 +83,7 @@ function pstl_widget_init() {
 		<input type="text" id="pstl_widget_title" name="pstl_widget_title" style="width: 100%" value="<?php echo $title; ?>" />
 		<textarea id="pstl_widget_text" name="pstl_widget_text" style="width: 100%; height: 150px;"><?php echo $text; ?></textarea>
 		<input type="hidden" name="pstl_widget_submit" id="pstl_widget_submit" value="1" />
+		Author AIM for home: <input type="text" id="pstl_widget_aim" name="pstl_widget_aim" style="width: 100%" value="<?php echo $aim; ?>" />
 		</div>
 	<?php
 	// end of widget_mywidget_control()
