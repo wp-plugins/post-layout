@@ -101,7 +101,8 @@ function pstl_the_content(&$content)
     $x = strpos($content, 'id="more');
     if ($x !== false)
     {
-        $x = strpos($content, '</p>', $x+4);
+        // span end
+        $x = strpos($content, '>', $x);
         if ($x !== false)
         {
             $more = str_replace('[title]', $title, $more);
@@ -112,7 +113,7 @@ function pstl_the_content(&$content)
             $more = str_replace('[author_aim]', get_the_author_aim(), $more);
             if (defined('BOOKMARK_ME')) $more = str_replace('[bookmark_me]', bookmark_me(), $more);
 
-            $content = substr($content, 0, $x+4) . $more . substr($content, $x+4);
+            $content = substr($content, 0, $x+1) . $more . substr($content, $x+1);
         }
     }
 
