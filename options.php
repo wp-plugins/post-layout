@@ -1,4 +1,4 @@
-<?
+<?php
 function pstl_request($name, $default=null)
 {
     if (!isset($_REQUEST[$name])) return $default;
