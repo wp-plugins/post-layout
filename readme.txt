@@ -2,7 +2,7 @@
 Tags: post, layout, theme, adsense, page, ads
 Requires at least: 2.1
 Tested up to: 2.5
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Donate link: http://www.satollo.com/english/donate
 Contributors: satollo
 
