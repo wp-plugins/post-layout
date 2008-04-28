@@ -3,7 +3,7 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.com/english/wordpress/post-layout
 Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 1.1.2
+Version: 1.2
 Author: Satollo
 Author URI: http://www.satollo.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -29,6 +29,22 @@ Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 define('POST_LAYOUT', true);
 
 $pstl_options = get_option('pstl');
+$pstl_options['comments_count'] = 0;
+
+add_filter('comment_text', 'pstl_comment_text');
+function pstl_comment_text($comment = '') 
+{
+    global $pstl_options;
+    echo $pstl_options['comments_count'] . '/' . $pstl_options['comments_number'];
+    $pstl_options['comments_count']++;
+    if ($pstl_options['comments_count'] == $pstl_options['comments_number'])
+    {
+        return $comment . $pstl_options['comment_last'];
+    }
+    
+    return $comment;
+}
+
 
 add_action('the_content', 'pstl_the_content');
 function pstl_the_content(&$content)
@@ -46,6 +62,8 @@ function pstl_the_content(&$content)
 
     if (is_single())
     {
+		$pstl_options['comments_number'] = get_comments_number();
+		//echo get_comments_number();
         if ($pstl_options['post_home'])
         {
             $before = $pstl_options['home_before'];
@@ -60,6 +78,7 @@ function pstl_the_content(&$content)
     }
     else if (is_page())
     {
+		$pstl_options['comments_number'] = get_comments_number();
         if ($pstl_options['post_home'])
         {
             $before = $pstl_options['home_before'];
@@ -119,6 +138,16 @@ function pstl_the_content(&$content)
 
     return $before . $content . $after;
 }
+
+add_action('comment_form', 'pstl_comment_form', 99);
+function pstl_comment_form()
+{
+    global $pstl_options;
+
+	$comment = $pstl_options['comment_form'];
+	echo $comment;
+}
+
 
 add_action('admin_head', 'pstl_admin_head');
 function pstl_admin_head()
