@@ -32,6 +32,8 @@ For any problem or question write me: satollo@gmail.com.
 
 Do you need other features? Please mail them to me don't be shy!
 
+Verision 1.3: the widget has been removed! Pay attention if you are using it!
+
 == Installation ==
 
 1. Put the plugin folder into [wordpress_dir]/wp-content/plugins/
