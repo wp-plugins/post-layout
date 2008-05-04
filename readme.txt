@@ -32,7 +32,13 @@ For any problem or question write me: satollo@gmail.com.
 
 Do you need other features? Please mail them to me don't be shy!
 
-Verision 1.3: the widget has been removed! Pay attention if you are using it!
+Version 1.3: the widget has been removed! Pay attention if you are using it!
+
+The plugin supports some "tags" that will e replaced bofore injecting the code in the post:
+
+- [title], [title_encoded] the title and the title encoded to be used as a parameter in a link
+- [link], [link_encoded] the permalink and the permalink encoded to be used as a parameter in a link
+- [author_aim] the author aim field, I use it to change the adsense pud id in a revenue shared blog
 
 == Installation ==
 
