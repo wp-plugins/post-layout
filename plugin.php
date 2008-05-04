@@ -3,7 +3,7 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.com/english/wordpress/post-layout
 Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 1.2
+Version: 1.3
 Author: Satollo
 Author URI: http://www.satollo.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -35,7 +35,7 @@ add_filter('comment_text', 'pstl_comment_text');
 function pstl_comment_text($comment = '') 
 {
     global $pstl_options;
-    echo $pstl_options['comments_count'] . '/' . $pstl_options['comments_number'];
+    //echo $pstl_options['comments_count'] . '/' . $pstl_options['comments_number'];
     $pstl_options['comments_count']++;
     if ($pstl_options['comments_count'] == $pstl_options['comments_number'])
     {
@@ -63,7 +63,6 @@ function pstl_the_content(&$content)
     if (is_single())
     {
 		$pstl_options['comments_number'] = get_comments_number();
-		//echo get_comments_number();
         if ($pstl_options['post_home'])
         {
             $before = $pstl_options['home_before'];
@@ -101,6 +100,14 @@ function pstl_the_content(&$content)
         $after = $pstl_options['home_after'];
     }
 
+    if (strpos($before, '<?') !== false) 
+    {
+        ob_start();
+        eval('?>' . $before);
+        $before = ob_get_contents();
+        ob_end_clean();
+    }
+    
     $before = str_replace('[title]', $title, $before);
     $before = str_replace('[title_encoded]', $title_encoded, $before);
     $before = str_replace('[link]', $link, $before);
@@ -108,6 +115,13 @@ function pstl_the_content(&$content)
     $before = str_replace('[author_aim]', get_the_author_aim(), $before);
     if (defined('BOOKMARK_ME')) $before = str_replace('[bookmark_me]', bookmark_me(), $before);
 
+    if (strpos($after, '<?') !== false) 
+    {
+        ob_start();
+        eval('?>' . $after);
+        $after = ob_get_contents();
+        ob_end_clean();
+    }
     $after = str_replace('[title]', $title, $after);
     $after = str_replace('[title_encoded]', $title_encoded, $after);
     $after = str_replace('[link]', $link, $after);
@@ -124,6 +138,14 @@ function pstl_the_content(&$content)
         $x = strpos($content, '>', $x);
         if ($x !== false)
         {
+        
+            if (strpos($more, '<?') !== false) 
+            {
+                ob_start();
+                eval('?>' . $more);
+                $more = ob_get_contents();
+                ob_end_clean();
+            }        
             $more = str_replace('[title]', $title, $more);
             $more = str_replace('[title_encoded]', $title_encoded, $more);
             $more = str_replace('[link]', $link, $more);
