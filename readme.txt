@@ -2,8 +2,8 @@
 Tags: post, layout, theme, adsense, page, ads
 Requires at least: 2.5
 Tested up to: 2.7
-Stable tag: 2.0.0
-Donate link: http://www.satollo.com/english/donate
+Stable tag: 2.0.1
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483
 Contributors: satollo
 
 Total control of your posts layout: adds code (Google AdSense, ...) before, after and in the middle of a post or anywhere with a block short tag.
@@ -15,7 +15,6 @@ I'm not a programmer, I cannot modify my theme so:
 * How can I put my Google AdSense code in my posts?
 * How can I add generic HTML/JavaScript code in my posts?
 * How can I add a piece of code in a particular position of a specific post?
-* How can I have a global piece of code to add in each posts I want?
 * How can I add a piece of **PHP code** in a post and **get it executed**?
 * How can I put the **Mobile Google AdSense ads** in my posts when the site is browsed with a mobile phone (and leave the classic ones otherwise)?
 * ...

@@ -169,6 +169,6 @@ the <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout o
 <li>[author_aim] - will be replaced by the author aim</li>
 </ul>
 
-<p class="submit"><input type="submit" name="save" value="Save"></p>
+<p class="submit"><input type="submit" name="save" value="Save"/></p>
 </form>
 </div>
