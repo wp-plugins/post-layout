@@ -1,16 +1,32 @@
 === Post Layout ===
 Tags: post, layout, theme, adsense, page, ads
-Requires at least: 2.1
-Tested up to: 2.5.1
-Stable tag: 1.3.1
+Requires at least: 2.5
+Tested up to: 2.7
+Stable tag: 2.0.0
 Donate link: http://www.satollo.com/english/donate
 Contributors: satollo
 
-Add HTML, JavaScript or PHP (new!) code before, after or in the middle of a post without modify the theme.
+Total control of your posts layout: adds code (Google AdSense, ...) before, after and in the middle of a post or anywhere with a block short tag.
 
 == Description ==
 
-Add HTML, JavaScript or PHP code before, after or in the middle of a post without modify the theme.
+I'm not a programmer, I cannot modify my theme so:
+
+* How can I put my Google AdSense code in my posts?
+* How can I add generic HTML/JavaScript code in my posts?
+* How can I add a piece of code in a particular position of a specific post?
+* How can I have a global piece of code to add in each posts I want?
+* How can I add a piece of **PHP code** in a post and **get it executed**?
+* How can I put the **Mobile Google AdSense ads** in my posts when the site is browsed with a mobile phone (and leave the classic ones otherwise)?
+* ...
+
+The answer to all those questions (and many others) is with **Post Layout**.
+
+Post Layout give you an incredible flexibility to insert whatever you want in posts and pages
+body. Adding JavaScript or HTML created by Google AdSense, Amazon, BidVertiser, Chitika and so on
+is a matter of copy and paste. No programming skills needed. No more troubly WordPress themes modification.
+
+And when you cange the theme... all continues to work.
 
 The plugin is VERY useful to everyone need to add AdSense or other advertising code in the post
 body (before, after or in the middle of them). The plugin injects the code without modify the theme
@@ -19,22 +35,20 @@ used and is "theme independent", so you can change the theme and the custom code
 The plugin can inject such code in the comment form, too, and after the last comment: those two positions
 are useful for blogs with a lot of comments, so there will be ads even in the bottom of a long page.
 
-Read more on the plugin page. For any issue, write me: satollo@gmail.com.
+Go to the [Post Layout official page](http://www.satollo.com/english/wordpress/post-layout) to
+have a deeper introduction and read the [usage examples page](http://www.satollo.com/english/wordpress/post-layout/examples).
+
+
+**Check out my other plugins**:
+
+* [Hyper Cache](http://www.satollo.com/english/wordpress/hyper-cache "Hyper Cache plugin: when performance and flexibilty are not an option")
+* [Post Layout](http://www.satollo.com/english/wordpress/post-layout "Post Layout plugin: the easy way to enrich your posts")
 
 == Installation ==
 
 1. Put the plugin folder into [wordpress_dir]/wp-content/plugins/
 2. Go into the WordPress admin interface and activate the plugin
 3. Go to the options page and configure the plugin
-
-== History ==
-Version 1.3.1
-	- the plugin no more change the post if it is processed for a feed, look for Feed Layout plugin if you want the same features
-	
-Version 1.3
-	- added the ability to execute php code in the HTML snippets (the plugin autodetect the usage of php tags and try to exceute the code)
-	- removed the not well working widget (it will be reinserted in a later version, sorry for that)
-	- added a way to put code in the comment form and after the last comment
 
 == Frequently Asked Questions ==
 

@@ -1,16 +1,4 @@
 <?php
-function pstl_request($name, $default=null)
-{
-    if (!isset($_REQUEST[$name])) return $default;
-    if (get_magic_quotes_gpc()) return pstl_stripslashes($_REQUEST[$name]);
-    else return $_REQUEST[$name];
-}
-
-function pstl_stripslashes($value)
-{
-    $value = is_array($value) ? array_map('pstl_stripslashes', $value) : stripslashes($value);
-    return $value;
-}
 
 function pstl_field_text($name, $label='', $tips='', $attrs='')
 {
@@ -50,9 +38,17 @@ function pstl_field_textarea($name, $label='', $tips='', $attrs='')
   echo '</td></tr>';
 }
 
+function pstl_field_textarea2($name)
+{
+    global $options;
+
+    echo '<textarea wrap="off" cols="45" rows="5" name="options[' . $name . ']">' . htmlspecialchars($options[$name]) . '</textarea>';
+}
+
 if (isset($_POST['save']))
 {
   $options = pstl_request('options');
+  if ($options['post_more_size'] == '') $options['post_more_size'] = 0;
   update_option('pstl', $options);
 }
 else
@@ -60,42 +56,108 @@ else
     $options = get_option('pstl');
 }
 ?>
+<style type="text/css">
+.wrap textarea, .wrap input {
+    font-family: monospace;
+    font-size: 9pt;
+}
+</style>
 <div class="wrap">
 <form method="post">
 
 <h2>Post Layout</h2>
+<p>To have more information about this plugin or some tips on it's usage, please go to 
+the <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout official page</a>.</p>
 
-<? if (defined('BOOKMARK_ME')) { ?>
-<p>You have bookmark me installed. Use the tag [bookmark_me] to print the bookmark buttons!</p>
-<? } ?>
-
-<p>Read to the end of the page for tags to be used inside the texts.</p>
-
-<h3>Home and categories</h3>
 <table class="form-table">
-<? pstl_field_textarea('home_before', 'Code before the post'); ?>
-<? pstl_field_textarea('home_after', 'Code after the post'); ?>
+<tr valign="top">
+    <th scope="row">General options</th>
+    <td>
+
+        <input type="checkbox" name="options[mobile]" value="1" <?php echo ($options[$name]!=null?'checked':''); ?> />
+        <label for="options[mobile]">Enable the mobile user agent detection</label>
+        <br />
+        
+    </td>
+</tr>
 </table>
 
 <h3>Single post</h3>
+<p>The codes below will be used when a single post is showed to the users and added before, after or in the middle of the post (if a "more break" is there).</p>
+
 <table class="form-table">
-<? pstl_field_checkbox('post_home', 'Use the home code'); ?>
-<? pstl_field_textarea('post_before', 'Code before the post'); ?>
-<? pstl_field_textarea('post_more', 'Code after the more break'); ?>
-<? pstl_field_textarea('post_after', 'Code after the post'); ?>
+<tr valign="top">
+    <th scope="row">Before the content</th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('post_before'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('post_before_mobile'); ?></td>
+</tr>
+
+<tr valign="top">
+    <th scope="row">In the middle of the content</th>
+    <td valign="top">For desktop browser<br /><?php pstl_field_textarea2('post_more'); ?>
+    Suspend this injection if post is less than <input type="text" size="6" name="options[post_more_size]" value="<?php echo htmlspecialchars($options['post_more_size']); ?>"/> characters
+    </td>
+    <td valign="top">For mobile devices<br /><?php pstl_field_textarea2('post_more_mobile'); ?></td>
+</tr>
+
+<tr valign="top">
+    <th scope="row"><label>After the content</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('post_after'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('post_after_mobile'); ?></td>
+</tr>
+
 </table>
 
 <h3>Page</h3>
 <table class="form-table">
-<? pstl_field_checkbox('page_post', 'Use the post codes'); ?>
-<? pstl_field_textarea('page_before', 'Code before the page'); ?>
-<? pstl_field_textarea('page_after', 'Code after the page'); ?>
+<tr valign="top">
+    <th scope="row"><label>Code before the page</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('page_before'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('page_before_mobile'); ?></td>
+</tr>
+<tr valign="top">
+    <th scope="row"><label>Code after the page</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('page_after'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('page_after_mobile'); ?></td>
+</tr>
 </table>
+
+<h3>Home and tags and categories pages</h3>
+<table class="form-table">
+<tr valign="top">
+    <th scope="row"><label>To add before the post content</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('home_before'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('home_before_mobile'); ?></td>
+</tr>
+<tr valign="top">
+    <th scope="row"><label>To add before the post content</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('home_after'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('home_after_mobile'); ?></td>
+</tr>
+</table>
+
+<!--
+<h3>Blocks</h3>
+<table class="form-table">
+<tr valign="top">
+    <th scope="row"><label>Block 1</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('block_1'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('block_1_mobile'); ?></td>
+</tr>
+<tr valign="top">
+    <th scope="row"><label>Block 2</label></th>
+    <td>For desktop browser<br /><?php pstl_field_textarea2('block_2'); ?></td>
+    <td>For mobile devices<br /><?php pstl_field_textarea2('block_2_mobile'); ?></td>
+</tr>
+</table>
+<p>Use the short tag [glbalblock id="x"] to insert the code anywhere in posts and pages. The x value for id has t be replaced with the block number.</p>
+-->
 
 <h3>Comments</h3>
 <table class="form-table">
-<? pstl_field_textarea('comment_form', 'Code after comment form'); ?>
-<? pstl_field_textarea('comment_last', 'Code after the last comment'); ?>
+<?php pstl_field_textarea('comment_form', 'Code after comment form'); ?>
+<?php pstl_field_textarea('comment_last', 'Code after the last comment'); ?>
+<!--<?php pstl_field_textarea('comment_after', 'Code after the current comment'); ?>-->
 </table>
 
 <p>In the code text you can use:
@@ -104,6 +166,7 @@ else
 <li>[title_encoded] - will be replaced by the post title encoded to be used as an URL parameter</li>
 <li>[link] - will be replaced by the post permalink</li>
 <li>[link_encoded] - will be replaced by the post permalink encoded to be used as an URL parameter</li>
+<li>[author_aim] - will be replaced by the author aim</li>
 </ul>
 
 <p class="submit"><input type="submit" name="save" value="Save"></p>
