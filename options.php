@@ -66,8 +66,18 @@ else
 <form method="post">
 
 <h2>Post Layout</h2>
+
 <p>To have more information about this plugin or some tips on it's usage, please go to 
-the <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout official page</a>.</p>
+ <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout official page</a>
+ or write me to info@satollo.com.</p>
+
+<p>Consider a <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483">DONATION</a> to support this plugin.</p>
+
+<p>
+My plugins: 
+<a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout</a>, 
+<a href="http://www.satollo.com/english/wordpress/hyper-cache">Hyper Cache</a>.
+</p>
 
 <table class="form-table">
 <tr valign="top">

@@ -2,7 +2,7 @@
 Tags: post, layout, theme, adsense, page, ads
 Requires at least: 2.5
 Tested up to: 2.7
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483
 Contributors: satollo
 
@@ -36,12 +36,14 @@ are useful for blogs with a lot of comments, so there will be ads even in the bo
 
 Go to the [Post Layout official page](http://www.satollo.com/english/wordpress/post-layout) to
 have a deeper introduction and read the [usage examples page](http://www.satollo.com/english/wordpress/post-layout/examples).
+Write me if you have issues to info@satollo.com.
 
 
 **Check out my other plugins**:
 
-* [Hyper Cache](http://www.satollo.com/english/wordpress/hyper-cache "Hyper Cache plugin: when performance and flexibilty are not an option")
-* [Post Layout](http://www.satollo.com/english/wordpress/post-layout "Post Layout plugin: the easy way to enrich your posts")
+* [Hyper Cache](http://www.satollo.com/english/wordpress/hyper-cache "Hyper Cache WordPress plugin: when performance and flexibilty are not an option")
+* [Post Layout](http://www.satollo.com/english/wordpress/post-layout "Post Layout WordPress plugin: the easy way to enrich your posts")
+* [Feed Layout](http://www.satollo.com/english/wordpress/feed-layout "Feed Layout WordPress plugin: the easy way to enrich your feed contents")
 
 == Installation ==
 
@@ -51,7 +53,14 @@ have a deeper introduction and read the [usage examples page](http://www.satollo
 
 == Frequently Asked Questions ==
 
-No questions have been asked.
+**How can I submit a bug?**
+
+Write me to info@satollo.com, please, it's the quicker way to have it fixed. You can write to the 
+WordPress forum, too, but I read it rarely.
+
+**Where can I find versions history?**
+
+On this page: [Post Layout versions](http://www.satollo.com/english/wordpress/post-layout/versions).
 
 == Screenshots ==
 
