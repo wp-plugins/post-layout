@@ -76,6 +76,7 @@ else
 <p>
 My plugins: 
 <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout</a>, 
+<a href="http://www.satollo.com/english/wordpress/feed-layout">Feed Layout</a>,
 <a href="http://www.satollo.com/english/wordpress/hyper-cache">Hyper Cache</a>.
 </p>
 
