@@ -85,7 +85,7 @@ My plugins:
     <th scope="row">General options</th>
     <td>
 
-        <input type="checkbox" name="options[mobile]" value="1" <?php echo ($options[$name]!=null?'checked':''); ?> />
+        <input type="checkbox" name="options[mobile]" value="1" <?php echo ($options['mobile']!=null?'checked':''); ?> />
         <label for="options[mobile]">Enable the mobile user agent detection</label>
         <br />
         
