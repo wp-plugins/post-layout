@@ -70,14 +70,16 @@ else
 <p>To have more information about this plugin or some tips on it's usage, please go to 
  <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout official page</a>
  or write me to info@satollo.com.</p>
+<p>If you're interested in a more complete and professional version to have better control
+on ads insertion, take at look to the <a href="http://www.satollo.net/plugins/post-layout-pro">Post Layout Pro version</a>.</p>
 
 <p>Consider a <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483">DONATION</a> to support this plugin.</p>
 
 <p>
 My plugins: 
-<a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout</a>, 
 <a href="http://www.satollo.com/english/wordpress/feed-layout">Feed Layout</a>,
 <a href="http://www.satollo.com/english/wordpress/hyper-cache">Hyper Cache</a>.
+<a href="http://www.satollo.com/english/wordpress/comment-notifier">Comment Notifier</a>.
 </p>
 
 <table class="form-table">
