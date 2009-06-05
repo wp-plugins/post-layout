@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Post Layout
-Plugin URI: http://www.satollo.com/english/wordpress/post-layout
+Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 2.0.4
+Version: 2.0.7
 Author: Satollo
-Author URI: http://www.satollo.com
+Author URI: http://www.satollo.net
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 */
 
@@ -234,7 +234,7 @@ function pstl_post_meta($post_id)
     {
         if (isset($_POST['pstl_disabled']))
         {
-            // Se esiste già il true finale evita l'add
+            // Se esiste giï¿½ il true finale evita l'add
             add_post_meta($post_id, 'pstl_disabled', '1', true);
         }
 	    else 
@@ -245,7 +245,7 @@ function pstl_post_meta($post_id)
         $tmp = trim(pstl_request('pstl_block_1'));
         if ($tmp != '')
         {
-            // Se esiste già il true finale evita l'add
+            // Se esiste giï¿½ il true finale evita l'add
             add_post_meta($post_id, 'pstl_block_1', $tmp, true);
         }
 	    else 

@@ -41,6 +41,9 @@ Write me if you have issues to info@satollo.com.
 
 **Check out my other plugins**:
 
+* [Other Posts](http://www.satollo.net/plugins/other-posts)
+* [Newsletter](http://www.satollo.net/plugins/newsletter)
+* [Header and Footer](http://www.satollo.net/plugins/header-footer)
 * [Hyper Cache](http://www.satollo.com/english/wordpress/hyper-cache "Hyper Cache WordPress plugin: when performance and flexibilty are not an option")
 * [Post Layout](http://www.satollo.com/english/wordpress/post-layout "Post Layout WordPress plugin: the easy way to enrich your posts")
 * [Feed Layout](http://www.satollo.com/english/wordpress/feed-layout "Feed Layout WordPress plugin: the easy way to enrich your feed contents")
