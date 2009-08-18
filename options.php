@@ -47,9 +47,10 @@ function pstl_field_textarea2($name)
 
 if (isset($_POST['save']))
 {
-  $options = pstl_request('options');
-  if ($options['post_more_size'] == '') $options['post_more_size'] = 0;
-  update_option('pstl', $options);
+    if (!wp_verify_nonce($_POST['_wpnonce'], 'save')) die('Securety violated');
+    $options = stripslashes_deep($_POST['options']);
+    if ($options['post_more_size'] == '') $options['post_more_size'] = 0;
+    update_option('pstl', $options);
 }
 else
 {
@@ -64,7 +65,7 @@ else
 </style>
 <div class="wrap">
 <form method="post">
-
+<?php wp_nonce_field('save') ?>
 <h2>Post Layout</h2>
 
 <p>To have more information about this plugin or some tips on it's usage, please go to 
@@ -77,6 +78,7 @@ on ads insertion, take at look to the <a href="http://www.satollo.net/plugins/po
 
 <p>
 My plugins: 
+<a href="http://www.satollo.net/plugins/ecards">eCards for WordPress</a>,
 <a href="http://www.satollo.net/plugins/header-footer">Header and Footer</a>,
 <a href="http://www.satollo.net/plugins/other-posts">Other Posts</a>,
 <a href="http://www.satollo.net/plugins/newsletter">Newsletter</a>,

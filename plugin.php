@@ -3,13 +3,13 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 2.0.7
+Version: 2.0.9
 Author: Satollo
 Author URI: http://www.satollo.net
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 */
 
-/*	Copyright 2008  Satollo  (email : satollo@gmail.com)
+/*	Copyright 2008  Satollo  (email : info@satollo.net)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,19 +41,6 @@ $pstl_options['comments_count'] = 0;
 
 $pstl_suffix = '';
 if (pstl_mobile_type() != '') $pstl_suffix = '_mobile';
-
-function pstl_request($name, $default=null)
-{
-    if (!isset($_REQUEST[$name])) return $default;
-    if (get_magic_quotes_gpc()) return pstl_stripslashes($_REQUEST[$name]);
-    else return $_REQUEST[$name];
-}
-
-function pstl_stripslashes($value)
-{
-    $value = is_array($value) ? array_map('pstl_stripslashes', $value) : stripslashes($value);
-    return $value;
-}
 
 add_filter('comment_text', 'pstl_comment_text');
 function pstl_comment_text($comment = '') 
