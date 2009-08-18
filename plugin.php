@@ -3,7 +3,7 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML o javascript code before, after or in the middle of the content of pages or posts without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 2.0.9
+Version: 2.1.0
 Author: Satollo
 Author URI: http://www.satollo.net
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -229,16 +229,16 @@ function pstl_post_meta($post_id)
             delete_post_meta($post_id, 'pstl_disabled');
         }
         
-        $tmp = trim(pstl_request('pstl_block_1'));
-        if ($tmp != '')
-        {
-            // Se esiste gi� il true finale evita l'add
-            add_post_meta($post_id, 'pstl_block_1', $tmp, true);
-        }
-	    else 
-	    {
-            delete_post_meta($post_id, 'pstl_block_1');
-        }
+//        $tmp = trim(pstl_request('pstl_block_1'));
+//        if ($tmp != '')
+//        {
+//            // Se esiste gi� il true finale evita l'add
+//            add_post_meta($post_id, 'pstl_block_1', $tmp, true);
+//        }
+//	    else
+//	    {
+//            delete_post_meta($post_id, 'pstl_block_1');
+//        }
     }
 }
         
