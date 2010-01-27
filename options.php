@@ -78,10 +78,9 @@ on ads insertion, take at look to the <a href="http://www.satollo.net/plugins/po
 
 <p>
 My plugins: 
-<a href="http://www.satollo.net/plugins/ecards">eCards for WordPress</a>,
-<a href="http://www.satollo.net/plugins/header-footer">Header and Footer</a>,
-<a href="http://www.satollo.net/plugins/other-posts">Other Posts</a>,
 <a href="http://www.satollo.net/plugins/newsletter">Newsletter</a>,
+<a href="http://www.satollo.net/plugins/postcards">Postcards for WordPress</a>,
+<a href="http://www.satollo.net/plugins/header-footer">Header and Footer</a>,
 <a href="http://www.satollo.com/english/wordpress/feed-layout">Feed Layout</a>,
 <a href="http://www.satollo.com/english/wordpress/hyper-cache">Hyper Cache</a>.
 <a href="http://www.satollo.com/english/wordpress/comment-notifier">Comment Notifier</a>.
@@ -148,7 +147,7 @@ My plugins:
     <td>For mobile devices<br /><?php pstl_field_textarea2('home_before_mobile'); ?></td>
 </tr>
 <tr valign="top">
-    <th scope="row"><label>To add before the post content</label></th>
+    <th scope="row"><label>To add after the post content</label></th>
     <td>For desktop browser<br /><?php pstl_field_textarea2('home_after'); ?></td>
     <td>For mobile devices<br /><?php pstl_field_textarea2('home_after_mobile'); ?></td>
 </tr>
