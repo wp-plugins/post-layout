@@ -1,7 +1,7 @@
 === Post Layout ===
 Tags: post, layout, theme, adsense, page, ads
 Requires at least: 2.5
-Tested up to: 2.9.1
+Tested up to: 3.0.1
 Stable tag: trunk
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483
 Contributors: satollo
