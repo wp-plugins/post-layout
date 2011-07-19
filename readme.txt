@@ -1,7 +1,7 @@
 === Post Layout ===
-Tags: post, layout, theme, adsense, page, ads
+Tags: post, layout, theme, adsense, page, ads, adsense, 
 Requires at least: 2.5
-Tested up to: 3.0.1
+Tested up to: 3.2.1
 Stable tag: trunk
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483
 Contributors: satollo
@@ -34,19 +34,7 @@ used and is "theme independent", so you can change the theme and the custom code
 The plugin can inject such code in the comment form, too, and after the last comment: those two positions
 are useful for blogs with a lot of comments, so there will be ads even in the bottom of a long page.
 
-Go to the [Post Layout official page](http://www.satollo.com/english/wordpress/post-layout) to
-have a deeper introduction and read the [usage examples page](http://www.satollo.com/english/wordpress/post-layout/examples).
-Write me if you have issues to info@satollo.com.
-
-
-**Check out my other plugins**:
-
-* [Other Posts](http://www.satollo.net/plugins/other-posts)
-* [Newsletter](http://www.satollo.net/plugins/newsletter)
-* [Header and Footer](http://www.satollo.net/plugins/header-footer)
-* [Hyper Cache](http://www.satollo.com/english/wordpress/hyper-cache "Hyper Cache WordPress plugin: when performance and flexibilty are not an option")
-* [Post Layout](http://www.satollo.com/english/wordpress/post-layout "Post Layout WordPress plugin: the easy way to enrich your posts")
-* [Feed Layout](http://www.satollo.com/english/wordpress/feed-layout "Feed Layout WordPress plugin: the easy way to enrich your feed contents")
+[Post Layout official page](http://www.satollo.net/plugins/post-layout).
 
 == Installation ==
 
@@ -56,15 +44,15 @@ Write me if you have issues to info@satollo.com.
 
 == Frequently Asked Questions ==
 
-**How can I submit a bug?**
-
-Write me to info@satollo.com, please, it's the quicker way to have it fixed. You can write to the 
-WordPress forum, too, but I read it rarely.
-
-**Where can I find versions history?**
-
-On this page: [Post Layout versions](http://www.satollo.com/english/wordpress/post-layout/versions).
+None.
 
 == Screenshots ==
 
-No screenshots are available.
+None.
+
+== Changelog ==
+
+= 2.1.4 =
+
+* Compatibility check with latest version of WordPress (seems ok)
+* Updated readme.txt file

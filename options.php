@@ -68,23 +68,14 @@ else
 <?php wp_nonce_field('save') ?>
 <h2>Post Layout</h2>
 
+<iframe src="http://frames.satollo.net/post-layout.php" frameborder="0" width="100%" height="80" style="border: 0"></iframe>
+
 <p>To have more information about this plugin or some tips on it's usage, please go to 
  <a href="http://www.satollo.net/plugins/post-layout">Post Layout official page</a>
  or write me to info@satollo.net.</p>
 <p>If you're interested in a more complete and professional version to have better control
 on ads insertion, take at look to the <a href="http://www.satollo.net/plugins/post-layout-pro">Post Layout Pro version</a>.</p>
 
-<p>Donations are welcome, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483">click here</a>.</p>
-
-<p>
-My plugins: 
-<a href="http://www.satollo.net/plugins/newsletter">Newsletter</a>,
-<a href="http://www.satollo.net/plugins/postcards">Postcards for WordPress</a>,
-<a href="http://www.satollo.net/plugins/header-footer">Header and Footer</a>,
-<a href="http://www.satollo.com/english/wordpress/feed-layout">Feed Layout</a>,
-<a href="http://www.satollo.com/english/wordpress/hyper-cache">Hyper Cache</a>.
-<a href="http://www.satollo.com/english/wordpress/comment-notifier">Comment Notifier</a>.
-</p>
 
 <table class="form-table">
 <tr valign="top">
