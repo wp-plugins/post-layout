@@ -3,7 +3,7 @@ function pstl_field_textarea2($name)
 {
     global $options;
 
-    echo '<textarea style="width: 100%;" wrap="off" id="' . $name . '" rows="5" name="options[' . $name . ']">' . htmlspecialchars($options[$name]) . '</textarea>';
+    echo '<textarea style="width: 550px;" wrap="off" id="' . $name . '" rows="5" name="options[' . $name . ']">' . htmlspecialchars($options[$name]) . '</textarea>';
 }
 
 $pstl_categories = get_categories();
@@ -24,22 +24,24 @@ function pstl_print_categories($prefix)
 function pstl_print_textareas($prefix)
 {
     global $pstl_categories, $options;
-    echo '<textarea style="width: 100%;" wrap="off" rows="7" id="' . $prefix . '" name="options[' . $prefix . ']">' . htmlspecialchars($options[$prefix]) . '</textarea><br />';
+    echo '<textarea style="width: 500px;" wrap="off" rows="5" id="' . $prefix . '" name="options[' . $prefix . ']">' . htmlspecialchars($options[$prefix]) . '</textarea><br />';
     foreach($pstl_categories as $c) {
-        echo '<textarea style="width: 100%; display: none" wrap="off" rows="7" id="' . $prefix . $c->cat_ID . '" name="options[' . $prefix . $c->cat_ID . ']">' . htmlspecialchars($options[$prefix . $c->cat_ID]) . '</textarea>';
+        echo '<textarea style="width: 500px; display: none" wrap="off" rows="5" id="' . $prefix . $c->cat_ID . '" name="options[' . $prefix . $c->cat_ID . ']">' . htmlspecialchars($options[$prefix . $c->cat_ID]) . '</textarea>';
     }
 }
 
 if (isset($_POST['save']))
 {
-    if (!wp_verify_nonce($_POST['_wpnonce'], 'save')) die('Securety violated');
-    $options = stripslashes_deep($_POST['options']);
-    if ($options['post_more_size'] == '') $options['post_more_size'] = 0;
-    update_option('pstl', $options);
+  $options = stripslashes_deep($_POST['options']);
+  foreach ($options as $key=>$value)
+  {
+    if (trim($value) == '') unset($options[$key]);
+  }
+  update_option('pstl' . $user_ID, $options);
 }
 else
 {
-    $options = get_option('pstl');
+    $options = get_option('pstl' . $user_ID);
 }
 
 $pstl_img_right = get_option('siteurl') . '/wp-content/plugins/post-layout-pro/images/right.gif';
@@ -67,14 +69,7 @@ h4 {
     padding: 0;
 }
 </style>
-<script>
-    jQuery(document).ready(function(){
-        jQuery("textarea").focus(function() {
-            jQuery("textarea").css("height", "50px");
-            jQuery(this).css("height", "400px");
-        });
-    });
-</script>
+
 <script type="text/javascript">
 var pstl_current_id = new Object();
 function pstl_change_category(s, prefix)
@@ -102,8 +97,23 @@ function pstl_show_hide(id)
 </script>
 <div class="wrap">
 <form method="post">
-<?php wp_nonce_field('save') ?>
-<h2>Post Layout Pro</h2>
+
+<h2>Post Layout Pro - User</h2>
+
+<p>To have more information about this plugin or some tips on it's usage, please go to 
+ <a href="http://www.satollo.com/english/wordpress/post-layout">Post Layout official page</a>
+ or write me to info@satollo.com.</p>
+
+<!--
+<ul>
+<li><a href="#pstl_post">Single post configuration</a></li>
+<li><a href="#pstl_page">Pages configuration</a></li>
+<li><a href="#pstl_home">Home, tags, categories and other pages configuration</a></li>
+<li><a href="#pstl_mobile">Mobile configuration</a></li>
+<li><a href="#pstl_blocks">Blocks</a></li>
+<li><a href="#pstl_help">Help</a></li>
+</ul>
+-->
 
 <a name="pstl_post"></a>
 <h3>
@@ -267,7 +277,7 @@ PHP code.
 <p class="submit"><input type="submit" name="save" value="Save"/></p>
 </div>
 
-<?php if (file_exists(dirname(__FILE__) . '/options-user.php')) { ?>
+<!-- future
 <a name="pstl_multiauthor"></a>
 <h3>
     <a href="javascript:pstl_show_hide('multiauthor')"><img id="img_multiauthor" src="<?php echo $pstl_img_right; ?>" border="0"/></a>
@@ -284,9 +294,8 @@ will be used only on their posts, not for home page and categories and tags.
 <label for="options[multiauthor]">Enable multi author mode</label>
 </p>
 
-<p class="submit"><input type="submit" name="save" value="Save"/></p>
 </div>
-<?php } ?>
+-->
 
 <a name="pstl_blocks"></a>
 <h3>
