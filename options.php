@@ -42,8 +42,8 @@ else
     $options = get_option('pstl');
 }
 
-$pstl_img_right = get_option('siteurl') . '/wp-content/plugins/post-layout-pro/images/right.gif';
-$pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout-pro/images/down.gif';
+$pstl_img_right = get_option('siteurl') . '/wp-content/plugins/post-layout/images/right.gif';
+$pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout/images/down.gif';
 ?>
 <style type="text/css">
 p, p input, p textarea, p select {

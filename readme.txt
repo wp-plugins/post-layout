@@ -51,6 +51,10 @@ None.
 
 == Changelog ==
 
+= 2.2.1 =
+
+* Fixed the reference to the "post-layout-pro" folder
+
 = 2.2.0 =
 
 * Added pro features

@@ -3,16 +3,16 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML o javascript code into posts and pages with per category configuration without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 2.2.0
+Version: 2.2.1
 Author: Stefano Lissa
 Author URI: http://www.satollo.net
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 */
 
-add_filter("plugin_action_links_post-layout-pro/plugin.php", 'pstl_plugin_action_links');
+add_filter("plugin_action_links_post-layout/plugin.php", 'pstl_plugin_action_links');
 function pstl_plugin_action_links($links) 
 { 
-    $settings_link = '<a href="options-general.php?page=post-layout-pro/options.php">' . __('Settings') . '</a>';
+    $settings_link = '<a href="options-general.php?page=post-layout/options.php">' . __('Settings') . '</a>';
     array_unshift($links, $settings_link);
     return $links;
 }
@@ -236,7 +236,7 @@ function pstl_admin_menu()
 {
     // http://codex.wordpress.org/Adding_Administration_Menus
     $options = get_option('pstl');
-    add_options_page('Post Layout Pro', 'Post Layout Pro', 'manage_options', 'post-layout-pro/options.php');
+    add_options_page('Post Layout Pro', 'Post Layout Pro', 'manage_options', 'post-layout/options.php');
     if (file_exists(dirname(__FILE__) . '/options-user.php'))
     {
         if ($options['multiauthor'])
