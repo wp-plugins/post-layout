@@ -1,9 +1,9 @@
 === Post Layout ===
 Tags: post, layout, theme, adsense, page, ads, adsense, 
 Requires at least: 2.5
-Tested up to: 3.5
+Tested up to: 3.7.1
 Stable tag: trunk
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2545483
+Donate link: http://www.satollo.net/donations
 
 Total control of your posts layout: adds code (Google AdSense, ...) before, after and in the middle of a post or anywhere with a block short tag.
 

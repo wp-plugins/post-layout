@@ -3,11 +3,18 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML o javascript code into posts and pages with per category configuration without modify the theme. For any problem or question write me: satollo@gmail.com.
-Version: 2.2.1
+Version: 2.2.2
 Author: Stefano Lissa
 Author URI: http://www.satollo.net
-Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 */
+
+add_action('admin_head', 'pstl_admin_head');
+function pstl_admin_head()
+{
+    if (strpos($_GET['page'], basename(dirname(__FILE__)) . '/') === 0) {
+        echo '<link type="text/css" rel="stylesheet" href="' . plugins_url('admin.css', __FILE__) . '">';
+    }
+}
 
 add_filter("plugin_action_links_post-layout/plugin.php", 'pstl_plugin_action_links');
 function pstl_plugin_action_links($links) 
@@ -236,12 +243,12 @@ function pstl_admin_menu()
 {
     // http://codex.wordpress.org/Adding_Administration_Menus
     $options = get_option('pstl');
-    add_options_page('Post Layout Pro', 'Post Layout Pro', 'manage_options', 'post-layout/options.php');
+    add_options_page('Post Layout', 'Post Layout', 'manage_options', 'post-layout/options.php');
     if (file_exists(dirname(__FILE__) . '/options-user.php'))
     {
         if ($options['multiauthor'])
         {
-            add_submenu_page('profile.php', 'Post Layout Pro', 'Post Layout Pro', 5, dirname(__FILE__) . '/options-user.php');
+            add_submenu_page('profile.php', 'Post Layout', 'Post Layout', 5, dirname(__FILE__) . '/options-user.php');
         }
     }
 }
