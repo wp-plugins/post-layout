@@ -28,6 +28,7 @@ function pstl_print_textareas($prefix) {
 }
 
 if (isset($_POST['save'])) {
+    if (!wp_verify_nonce($_POST['_wpnonce'], 'save')) die('Securety violated');
     $options = stripslashes_deep($_POST['options']);
     foreach ($options as $key => $value) {
         if (trim($value) == '') unset($options[$key]);
@@ -67,9 +68,6 @@ $pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout/images
     }
 </script>
 <div class="wrap">
-    <form method="post">
-
-        <h2>Post Layout - User</h2>
 
         <div id="satollo-header">
             <a href="http://www.satollo.net/plugins/comment-notifier" target="_blank">Get Help</a>
@@ -80,13 +78,17 @@ $pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout/images
                 <input type="hidden" name="nr" value="comment-notifier">
                 <input type="submit" value="Go">
             </form>
-
+            <!--
             <a href="https://www.facebook.com/satollo.net" target="_blank"><img style="vertical-align: bottom" src="http://www.satollo.net/images/facebook.png"></a>
-
+            -->
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5PHGDGNHAYLJ8" target="_blank"><img style="vertical-align: bottom" src="http://www.satollo.net/images/donate.png"></a>
             <a href="http://www.satollo.net/donations" target="_blank">Even <b>1$</b> helps: read more</a>
         </div>
+        <h2>Post Layout - User Configurations</h2>
 
+
+    <form method="post">
+        <?php wp_nonce_field('save') ?>
         <a name="pstl_post"></a>
         <h3>
             <a href="javascript:pstl_show_hide('post')"><img id="img_post" src="<?php echo $pstl_img_right; ?>" border="0"/></a> 

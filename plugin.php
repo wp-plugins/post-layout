@@ -2,7 +2,7 @@
 /*
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
-Description: Adds HTML o javascript code into posts and pages with per category configuration without modify the theme. For any problem or question write me: satollo@gmail.com.
+Description: Adds HTML or JavaScript code into posts and pages with per category configuration without modify the theme.
 Version: 2.2.2
 Author: Stefano Lissa
 Author URI: http://www.satollo.net
@@ -48,6 +48,36 @@ function pstl_comment_text($comment = '')
     return $comment;
 }
 
+add_action('the_excerpt', 'pstl_the_excerpt');
+function pstl_the_excerpt($content) {
+    if (!is_search() && !is_archive()) return $content;
+    
+    $options = get_option('pstl');
+    
+    if (!isset($options['home_excerpt'])) return $content;
+    
+    $before = $options['home_before' . $suffix];
+    $after = $options['home_after' . $suffix];
+    
+    if (strpos($before, '<' . '?') !== false)
+    {
+        ob_start();
+        eval('?' . '>' . $before);
+        $before = ob_get_contents();
+        ob_end_clean();
+    }
+    
+    if (strpos($after, '<' . '?') !== false)
+    {
+        ob_start();
+        eval('?' . '>' . $after);
+        $after = ob_get_contents();
+        ob_end_clean();
+    }    
+    
+    return $before . $content . $after;
+}
+
 add_action('the_content', 'pstl_the_content');
 function pstl_the_content($content)
 {
@@ -55,6 +85,8 @@ function pstl_the_content($content)
 
     if (is_feed()) return $content;
     $options = get_option('pstl');
+    
+    if (isset($options['home_excerpt'])) return $content;
 
     $pstl_disabled = get_post_meta($post->ID, 'pstl_disabled', true);
     if ($pstl_disabled) return $content;

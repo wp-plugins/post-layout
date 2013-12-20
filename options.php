@@ -84,16 +84,24 @@ $pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout/images
             <input type="hidden" name="nr" value="post-layout">
             <input type="submit" value="Go">
         </form>
-
+        <!--
         <a href="https://www.facebook.com/satollo.net" target="_blank"><img style="vertical-align: bottom" src="http://www.satollo.net/images/facebook.png"></a>
-
+        -->
         <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5PHGDGNHAYLJ8" target="_blank"><img style="vertical-align: bottom" src="http://www.satollo.net/images/donate.png"></a>
         <a href="http://www.satollo.net/donations" target="_blank">Even <b>1$</b> helps: read more</a>
     </div>
+            
+    <h2>Post Layout</h2>
+    
+    <p>
+        See the <a href="http://www.satollo.net/plugins/post-layout" target="_blank">official page</a>
+        for documentation and consider to use even
+        <a href="http://www.satollo.net/plugins/header-footer" target="_blank">Header and Footer</a>.
+    </p>
 
     <form method="post">
         <?php wp_nonce_field('save') ?>
-        <h2>Post Layout</h2>
+
 
         <a name="pstl_post"></a>
         <h3>
@@ -162,6 +170,9 @@ $pstl_img_down = get_option('siteurl') . '/wp-content/plugins/post-layout/images
             Home and tags and categories pages
         </h3>
         <div id="div_home" style="display: none">
+                            
+            <input type="checkbox" name="options[home_excerpt]" value="1" <?php echo ($options['home_excerpt'] != null ? 'checked' : ''); ?> />
+                            
             <h4>To add before the post content</h4>
             <p>
                 <?php pstl_field_textarea2('home_before'); ?>

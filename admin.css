@@ -1,9 +1,9 @@
 #satollo-header {
     text-align: left;
-    background-color: #f4f4f4;
-    padding: 5px;
-    padding-left: 15px;
-    border-radius: 3px;
+    xbackground-color: #f4f4f4;
+    xpadding: 5px;
+    xpadding-left: 15px;
+    xborder-radius: 3px;
     text-transform: uppercase;
 }
 
@@ -11,7 +11,7 @@
     margin-right: 15px;
 }
 
-p, p input, p textarea, p select {
+p input, p textarea, p select {
     font-size: 11px;
 }
 p input {
