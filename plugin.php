@@ -3,7 +3,7 @@
 Plugin Name: Post Layout
 Plugin URI: http://www.satollo.net/plugins/post-layout
 Description: Adds HTML or JavaScript code into posts and pages with per category configuration without modify the theme.
-Version: 2.2.2
+Version: 2.2.3
 Author: Stefano Lissa
 Author URI: http://www.satollo.net
 */
@@ -350,7 +350,7 @@ foreach ($agents as $a)
 {
     if (strpos($agent, $a) !== false)
     {
-        if (strpos($agent, 'iphone') || strpos($agent, 'ipod'))
+        if (strpos($agent, 'iphone') || strpos($agent, 'ipod') || strpos($agent, 'android mobile'))
         {
             return 'iphone';
         }

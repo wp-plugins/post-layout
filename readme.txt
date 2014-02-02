@@ -1,7 +1,7 @@
 === Post Layout ===
 Tags: post, layout, theme, adsense, page, ads, adsense, 
 Requires at least: 2.5
-Tested up to: 3.8
+Tested up to: 3.8.1
 Stable tag: trunk
 Donate link: http://www.satollo.net/donations
 
@@ -51,10 +51,13 @@ None.
 
 == Changelog ==
 
+= 2.2.3 =
+
+* Fixed android mobile detection
+
 = 2.2.2 =
 
 * Added the excerpt injection on category pages.
-* 
 
 = 2.2.1 =
 
