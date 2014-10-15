@@ -1,13 +1,15 @@
 === Post Layout ===
-Tags: post, layout, theme, adsense, page, ads, adsense, 
+Tags: post, layout, theme, adsense, page, ads, adsense,
 Requires at least: 2.5
-Tested up to: 3.8.1
+Tested up to: 4.0
 Stable tag: trunk
 Donate link: http://www.satollo.net/donations
 
 Total control of your posts layout: adds code (Google AdSense, ...) before, after and in the middle of a post or anywhere with a block short tag.
 
 == Description ==
+
+An alternative to this plugin is the [Header and Footer](http://www.satollo.net/plugins/header-footer) plugin. Check it out!
 
 I'm not a programmer, I cannot modify my theme so:
 
@@ -50,6 +52,10 @@ None.
 None.
 
 == Changelog ==
+
+= 2.2.4 =
+
+* Updated the mobile agents list
 
 = 2.2.3 =
 
