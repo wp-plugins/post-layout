@@ -1,9 +1,10 @@
 === Post Layout ===
 Tags: post, layout, theme, adsense, page, ads, adsense,
 Requires at least: 2.5
-Tested up to: 4.0
+Tested up to: 4.1.1
 Stable tag: trunk
 Donate link: http://www.satollo.net/donations
+Contributors: satollo
 
 Total control of your posts layout: adds code (Google AdSense, ...) before, after and in the middle of a post or anywhere with a block short tag.
 
@@ -52,6 +53,11 @@ None.
 None.
 
 == Changelog ==
+
+= 2.2.5 =
+
+* Fixed the mobile version of home and categories injection
+* Fixed a debug notice
 
 = 2.2.4 =
 

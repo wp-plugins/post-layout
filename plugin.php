@@ -3,7 +3,7 @@
   Plugin Name: Post Layout
   Plugin URI: http://www.satollo.net/plugins/post-layout
   Description: Adds HTML or JavaScript code into posts and pages with per category configuration without modify the theme.
-  Version: 2.2.4
+  Version: 2.2.5
   Author: Stefano Lissa
   Author URI: http://www.satollo.net
  */
@@ -11,7 +11,7 @@
 add_action('admin_head', 'pstl_admin_head');
 
 function pstl_admin_head() {
-    if (strpos($_GET['page'], basename(dirname(__FILE__)) . '/') === 0) {
+    if (isset($_GET['page']) && strpos($_GET['page'], basename(dirname(__FILE__)) . '/') === 0) {
         echo '<link type="text/css" rel="stylesheet" href="' . plugins_url('admin.css', __FILE__) . '">';
     }
 }
@@ -43,8 +43,9 @@ function pstl_comment_text($comment = '') {
     if ($pstl_comments_count == $pstl_comments_number) {
         $comment .= $options['comment_last'];
     }
-    if (get_comment_ID() == $_GET['cid'])
+    if (get_comment_ID() == $_GET['cid']) {
         return $comment . $options['comment_after'];
+    }
 
     return $comment;
 }
@@ -52,13 +53,21 @@ function pstl_comment_text($comment = '') {
 add_action('the_excerpt', 'pstl_the_excerpt');
 
 function pstl_the_excerpt($content) {
-    if (!is_search() && !is_archive())
+    if (!is_search() && !is_archive()) {
         return $content;
+    }
 
     $options = get_option('pstl');
 
-    if (!isset($options['home_excerpt']))
+    if (!isset($options['home_excerpt'])) {
         return $content;
+    }
+
+    $mobile = pstl_mobile_type();
+    $suffix = '';
+    if ($mobile != '') {
+        $suffix = '_mobile';
+    }
 
     $before = $options['home_before' . $suffix];
     $after = $options['home_after' . $suffix];
@@ -85,24 +94,28 @@ add_action('the_content', 'pstl_the_content');
 function pstl_the_content($content) {
     global $post, $pstl_comments_number;
 
-    if (is_feed())
+    if (is_feed()) {
         return $content;
+    }
     $options = get_option('pstl');
 
-    if (isset($options['home_excerpt']))
+    if (isset($options['home_excerpt'])) {
         return $content;
+    }
 
     $pstl_disabled = get_post_meta($post->ID, 'pstl_disabled', true);
-    if ($pstl_disabled)
+    if ($pstl_disabled) {
         return $content;
+    }
     $pstl_before_disabled = get_post_meta($post->ID, 'pstl_before_disabled', true);
     $pstl_after_disabled = get_post_meta($post->ID, 'pstl_after_disabled', true);
 
     $user_options = array();
     if ($options['multiauthor']) {
         $user_options = get_option('pstl' . $post->post_author);
-        if (is_array($user_options))
+        if (is_array($user_options)) {
             $options = array_merge($options, $user_options);
+        }
     }
 
     $title = get_the_title();
@@ -112,8 +125,9 @@ function pstl_the_content($content) {
 
     $mobile = pstl_mobile_type();
     $suffix = '';
-    if ($mobile != '')
+    if ($mobile != '') {
         $suffix = '_mobile';
+    }
 
     $before = '';
     $after = '';
